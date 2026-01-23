@@ -3,7 +3,10 @@ name: Upstream - Build and Publish
 on:
   push:
     branches:
-      - upstream/dbt_up
+      - main
+  pull_request:
+    branches:
+      - main
   workflow_dispatch:
 
 env:
