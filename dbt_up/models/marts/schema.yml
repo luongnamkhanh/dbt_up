@@ -3,8 +3,8 @@ version: 2
 models:
   - name: public_orders
     description: "Public orders model exposed for cross-project consumption"
-    access: public
     config:
+      access: public
       contract:
         enforced: true
     columns:

@@ -35,21 +35,21 @@ jobs:
         run: |
           mkdir -p ~/.dbt
           cat > ~/.dbt/profiles.yml <<EOF
-          dbt_up:
-            target: prod
-            outputs:
-              prod:
-                type: snowflake
-                account: \${{ secrets.SNOWFLAKE_ACCOUNT }}
-                user: \${{ secrets.SNOWFLAKE_USER }}
-                password: \${{ secrets.SNOWFLAKE_PASSWORD }}
-                role: DBT_UP_ROLE
-                warehouse: DBT_UP_WH
-                database: DBT_UP_PROD
-                schema: STAGING
-                threads: 4
-                client_session_keep_alive: false
-          EOF
+dbt_up:
+  target: prod
+  outputs:
+    prod:
+      type: snowflake
+      account: ${{ secrets.SNOWFLAKE_ACCOUNT }}
+      user: ${{ secrets.SNOWFLAKE_USER }}
+      password: ${{ secrets.SNOWFLAKE_PASSWORD }}
+      role: DBT_UP_ROLE
+      warehouse: DBT_UP_WH
+      database: DBT_UP_PROD
+      schema: STAGING
+      threads: 4
+      client_session_keep_alive: false
+EOF
 
       - name: Build dbt models
         run: |
